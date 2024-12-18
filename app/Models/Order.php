@@ -11,9 +11,13 @@ class Order extends Model
     protected $table = 'tbl_order';
     protected $fillable = [
         'id',
-        'user_id',
         'order_date',
-        'total_amount',
-        'status'
+        'customer_name',
+        'total_price',
+        'coupon_code',
+        'payment_method',
+        'payment_status',
+        'shipping_address',
+        'notes',
     ];
 }

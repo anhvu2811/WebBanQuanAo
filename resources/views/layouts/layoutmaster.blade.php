@@ -22,19 +22,22 @@
         <div class="row">
             <!-- Sidebar -->
             <nav class="col-md-3 col-lg-2 sidebar">
-                <h4>Danh mục</h4>
+                <h4>Dashboard</h4>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('category.index') }}">Loại sản phẩm</a>
+                        <a class="nav-link" href="{{ route('category.index') }}">Category</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('product.index') }}">Sản phẩm</a>
+                        <a class="nav-link" href="{{ route('product.index') }}">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('category.index') }}">Nhà sản xuất</a>
+                        <a class="nav-link" href="{{ route('order.index') }}">Order</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('category.index') }}"></a>
+                        <a class="nav-link" href="{{ route('banner.edit') }}">Banner</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('setting.edit') }}">Setting</a>
                     </li>
                 </ul>
             </nav>

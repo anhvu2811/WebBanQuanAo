@@ -11,15 +11,31 @@ class Product extends Model
     protected $table = 'tbl_product';
     protected $fillable =  [
         'id',
-        'product_name',
-        'product_description',
+        'name',
+        'description',
+        'material',
         'price',
-        'quatity',
-        'image_url',
         'category_id',
     ];
 
     public function category() {
-        return $this>belongsTo(Category::class, 'category_id', 'id');
+        return $this->belongsTo(Category::class);
+    }
+
+    public function images() {
+        return $this->hasMany(ProductImage::class)->where('is_main', true);
+    }
+
+    public function productSize() {
+        return $this->hasMany(ProductSize::class);
+    }
+    
+    public function trending() {
+        return $this->belongsTo(Trending::class);
+    }
+
+    public function discount()
+    {
+        return $this->hasOne(Discount::class);
     }
 }

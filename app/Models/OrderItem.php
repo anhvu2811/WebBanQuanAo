@@ -13,6 +13,8 @@ class OrderItem extends Model
         'id',
         'order_id',
         'product_id',
+        'size_id',
         'quantity',
+        'price'
     ];
 }

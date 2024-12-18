@@ -15,14 +15,14 @@ class CategoryTableSeeder extends Seeder
     {
         DB::table('tbl_category')->insert([
             [
-                'category_name' => 'Điện thoại',
-                'category_description' => 'Các mẫu điện thoại',
+                'name' => 'Điện thoại',
+                'description' => 'Các mẫu điện thoại',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'category_name' => 'Xe máy 110cc',
-                'category_description' => 'Các mẫu xe máy chỉ có 110cc',
+                'name' => 'Xe máy 110cc',
+                'description' => 'Các mẫu xe máy chỉ có 110cc',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
