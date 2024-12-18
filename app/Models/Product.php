@@ -38,4 +38,8 @@ class Product extends Model
     {
         return $this->hasOne(Discount::class);
     }
+
+    public function productImages() {
+        return $this->hasMany(ProductImage::class);
+    }
 }

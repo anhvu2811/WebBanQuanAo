@@ -31,21 +31,13 @@
                         </div>
                         <div id="gallery_01" class="swiper-container more-views" data-margin="10" data-items="5" data-direction="vertical"> 
                            <div class="swiper-wrapper">
-                              <div class="swiper-slide">
-                                 <a href="//bizweb.dktcdn.net/thumb/1024x1024/100/022/044/products/ruou16-c6ec3060-8d74-485c-a972-2d77a6233372.jpg?v=1446197510767" class="thumb-link" title="" rel="//bizweb.dktcdn.net/thumb/1024x1024/100/022/044/products/ruou16-c6ec3060-8d74-485c-a972-2d77a6233372.jpg?v=1446197510767">
-                                 <img src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/ruou16-c6ec3060-8d74-485c-a972-2d77a6233372.jpg?v=1446197510767" alt="Rượu Wine  Cheese">
-                                 </a>
-                              </div>
-                              <div class="swiper-slide">
-                                 <a href="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/ruou33-17d97223-6bf5-47ca-b268-3efc3bdef186.jpg?v=1446197581247" class="thumb-link" title="" rel="//bizweb.dktcdn.net/thumb/1024x1024/100/022/044/products/ruou33-17d97223-6bf5-47ca-b268-3efc3bdef186.jpg?v=1446197581247">
-                                 <img src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/ruou33-17d97223-6bf5-47ca-b268-3efc3bdef186.jpg?v=1446197581247" alt="Rượu Wine  Cheese">
-                                 </a>
-                              </div>
-                              <div class="swiper-slide">
-                                 <a href="//bizweb.dktcdn.net/thumb/1024x1024/100/022/044/products/ruou34-0f5a93f2-55e3-4bc7-8c25-40b7b2e51927.jpg?v=1446197581250" class="thumb-link" title="" rel="//bizweb.dktcdn.net/thumb/1024x1024/100/022/044/products/ruou34-0f5a93f2-55e3-4bc7-8c25-40b7b2e51927.jpg?v=1446197581250">
-                                 <img src="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/ruou34-0f5a93f2-55e3-4bc7-8c25-40b7b2e51927.jpg?v=1446197581250" alt="Rượu Wine  Cheese">
-                                 </a>
-                              </div>
+                              @foreach($product->productImages as $image)
+                                 <div class="swiper-slide">
+                                    <a href="{{ asset('storage/' . $image->image_url )}}" class="thumb-link" title="" rel="{{ asset('storage/' . $image->image_url )}}">
+                                    <img src="{{ asset('storage/' . $image->image_url )}}" alt="{{ $product->name }}">
+                                    </a>
+                                 </div>
+                              @endforeach
                            </div>
                         </div>
                         <div class="more-views">
