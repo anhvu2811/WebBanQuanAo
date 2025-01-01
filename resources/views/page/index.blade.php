@@ -6,10 +6,10 @@
    <style>
       .home-slider {
          width: 100%;
-         height: 550px;
+         height: auto;
          overflow: hidden;
       }
-
+      
       .swiper-wrapper {
          display: flex;
       }
@@ -18,6 +18,12 @@
          width: 100%;
          flex-shrink: 0;
          height: 100%;
+      }
+
+      .swiper-slide img {
+         width: 100%;  
+         height: auto; 
+         object-fit: cover;
       }
 
       img.img-responsive {
@@ -63,8 +69,8 @@
                   </div>
                @endforeach
            </div>
-           <div class="swiper-button-next"></div>
-           <div class="swiper-button-prev"></div>
+           {{-- <div class="swiper-button-next"></div>
+           <div class="swiper-button-prev"></div> --}}
 
            <div class="swiper-pagination"></div>
         </div>
