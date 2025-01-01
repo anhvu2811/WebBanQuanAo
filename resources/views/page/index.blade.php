@@ -6,7 +6,7 @@
    <style>
       .home-slider {
          width: 100%;
-         height: auto;
+         max-height: 550px;
          overflow: hidden;
       }
       
