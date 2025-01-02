@@ -31,8 +31,8 @@
                    <li class="search">
                       <a href="javascript:;"><i class="fa fa-search"></i></a>
                       <div class="header_search search_form">
-                         <form class="input-group search-bar search_form" action="/search" method="get" role="search">		
-                            <input type="search" name="query" value="" placeholder="Tìm kiếm sản phẩm... " class="input-group-field st-default-search-input search-text" autocomplete="off">
+                         <form class="input-group search-bar search_form" action="/product/search" method="get" role="search">		
+                            <input type="search" name="q" value="" placeholder="Tìm kiếm sản phẩm... " class="input-group-field st-default-search-input search-text" autocomplete="off">
                             <span class="input-group-btn">
                             <button class="btn icon-fallback-text">
                             <i class="fa fa-search"></i>

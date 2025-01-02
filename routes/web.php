@@ -40,6 +40,8 @@ Route::post('/product/update-image/{id}', [ProductController::class, 'updateProd
 
 Route::get('/product/{id}/sizes', [ProductController::class, 'showSizes']);
 
+Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
+
 // --------------------- Login ---------------------
 // Route::get('/account/login', [LoginController::class, 'index'])->name('login.index');
 Route::post('/account/login', [LoginController::class, 'login'])->name('login.index');
@@ -64,8 +66,6 @@ Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add')
 Route::delete('/cart/remove/{index}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/checkoutt', [CartController::class, 'checkout'])->name('cart.checkout');
 
-// --------------------- Testing ---------------------
-Route::get('/test', [ProductController::class, 'test'])->name('page.product-detail');
 
 
 

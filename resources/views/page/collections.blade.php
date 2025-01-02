@@ -95,78 +95,82 @@
                      </div>
                   @endif
                  <section class="products-view products-view-grid">
-                    <div class="row">
-                        @foreach($products as $product)
-                           <div class="col-xs-6 col-sm-4 col-md-4 col-lg-5-fix">
-                              <div class="product-box a-center">
-                                 <div class="product-thumbnail">
-                                    @if($product->discount)
-                                       <div class="sale-flash"> 
-                                          {{ $product->discount->discount_level }}% 
-                                       </div>
-                                    @endif
-                                    <a href="/collections/{{ $product->id }}" title="{{ $product->name }}">
-                                       <picture>
-                                          <source media="(min-width: 1200px)" srcset="{{ asset('storage/' . $product->images->first()->image_url) }}">
-                                          <source media="(min-width: 992px)" srcset="{{ asset('storage/' . $product->images->first()->image_url) }}">
-                                          <source media="(min-width: 569px)" srcset="{{ asset('storage/' . $product->images->first()->image_url) }}">
-                                          <source media="(max-width: 480px)" srcset="{{ asset('storage/' . $product->images->first()->image_url) }}">
-                                          <source media="(max-width: 375px)" srcset="{{ asset('storage/' . $product->images->first()->image_url) }}">
-
-                                          <img width="240" height="240" data-src="{{ asset('storage/' . $product->images->first()->image_url) }}" alt="{{ $product->name }}" class="lazyload img-responsive center-block">
-                                       </picture>
-                                    </a>
-                                    <div class="product-action clearfix">
-                                       <form action="{{ route('cart.add') }}" method="post" class="variants form-nut-grid" data-id="product-actions-{{ $product->id }}" enctype="multipart/form-data">
-                                          @csrf
-                                          <div>
-                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                             <input type="hidden" name="quantity" value="1" min="1" max="10">
-                                             @if($product->discount) 
-                                                <input type="hidden" name="price" value="{{ $product->discount->new_price }}">
-                                             @else
-                                                <input type="hidden" name="price" value="{{ $product->price }}">
-                                             @endif
-                                             <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                                <span>
-                                                   <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                                   Mua hàng
-                                                </span>
-                                             </button>
-                                          </div>
-                                       </form>
-                                    </div>
-                                 </div>
-                                 <div class="product-info">
-                                    <h3 class="product-name"><a href="/collections/{{ $product->id }}" title="{{ $product->name }}">{{ $product->name }}</a></h3>
-                                    <div class="price-box clearfix">
+                     @if(count($products) == 0)
+                        <p style="text-align: center; font-style: italic; color: gray;">No products found</p>
+                     @else
+                        <div class="row">
+                           @foreach($products as $product)
+                              <div class="col-xs-6 col-sm-4 col-md-4 col-lg-5-fix">
+                                 <div class="product-box a-center">
+                                    <div class="product-thumbnail">
                                        @if($product->discount)
-                                          <div class="special-price inline-block">
-                                             <span class="price product-price">{{ number_format($product->discount->new_price, 0, ',', '.') }}₫</span>
-                                          </div>
-                                          <div class="old-price inline-block">															 
-                                             <span class="price product-price-old">
-                                                {{ number_format($product->price, 0, ',', '.') }}₫
-                                             </span>
-                                          </div>
-                                       @else
-                                          <div class="special-price inline-block">
-                                             <span class="price product-price">{{ number_format($product->price, 0, ',', '.') }}₫</span>
+                                          <div class="sale-flash"> 
+                                             {{ $product->discount->discount_level }}% 
                                           </div>
                                        @endif
+                                       <a href="/collections/{{ $product->id }}" title="{{ $product->name }}">
+                                          <picture>
+                                             <source media="(min-width: 1200px)" srcset="{{ asset('storage/' . $product->images->first()->image_url) }}">
+                                             <source media="(min-width: 992px)" srcset="{{ asset('storage/' . $product->images->first()->image_url) }}">
+                                             <source media="(min-width: 569px)" srcset="{{ asset('storage/' . $product->images->first()->image_url) }}">
+                                             <source media="(max-width: 480px)" srcset="{{ asset('storage/' . $product->images->first()->image_url) }}">
+                                             <source media="(max-width: 375px)" srcset="{{ asset('storage/' . $product->images->first()->image_url) }}">
+
+                                             <img width="240" height="240" data-src="{{ asset('storage/' . $product->images->first()->image_url) }}" alt="{{ $product->name }}" class="lazyload img-responsive center-block">
+                                          </picture>
+                                       </a>
+                                       <div class="product-action clearfix">
+                                          <form action="{{ route('cart.add') }}" method="post" class="variants form-nut-grid" data-id="product-actions-{{ $product->id }}" enctype="multipart/form-data">
+                                             @csrf
+                                             <div>
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <input type="hidden" name="quantity" value="1" min="1" max="10">
+                                                @if($product->discount) 
+                                                   <input type="hidden" name="price" value="{{ $product->discount->new_price }}">
+                                                @else
+                                                   <input type="hidden" name="price" value="{{ $product->price }}">
+                                                @endif
+                                                <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
+                                                   <span>
+                                                      <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                                      Mua hàng
+                                                   </span>
+                                                </button>
+                                             </div>
+                                          </form>
+                                       </div>
+                                    </div>
+                                    <div class="product-info">
+                                       <h3 class="product-name"><a href="/collections/{{ $product->id }}" title="{{ $product->name }}">{{ $product->name }}</a></h3>
+                                       <div class="price-box clearfix">
+                                          @if($product->discount)
+                                             <div class="special-price inline-block">
+                                                <span class="price product-price">{{ number_format($product->discount->new_price, 0, ',', '.') }}₫</span>
+                                             </div>
+                                             <div class="old-price inline-block">															 
+                                                <span class="price product-price-old">
+                                                   {{ number_format($product->price, 0, ',', '.') }}₫
+                                                </span>
+                                             </div>
+                                          @else
+                                             <div class="special-price inline-block">
+                                                <span class="price product-price">{{ number_format($product->price, 0, ',', '.') }}₫</span>
+                                             </div>
+                                          @endif
+                                       </div>
                                     </div>
                                  </div>
                               </div>
-                           </div>
-                        @endforeach
-                     </div>
-                     <div class="text-xs-center">
-                       <nav class="clearfix a-center">
-                           <ul class="pagination clearfix">
-                                 {{ $products->appends(request()->query())->links('pagination::bootstrap-4') }}
-                           </ul>
-                       </nav>
-                     </div>
+                           @endforeach
+                        </div>
+                        <div class="text-xs-center">
+                        <nav class="clearfix a-center">
+                              <ul class="pagination clearfix">
+                                    {{ $products->appends(request()->query())->links('pagination::bootstrap-4') }}
+                              </ul>
+                        </nav>
+                        </div>
+                     @endif
                  </section>
               </div>
            </section>

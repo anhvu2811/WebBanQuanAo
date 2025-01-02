@@ -296,9 +296,24 @@ class ProductController extends Controller
         ]);
     }
 
-
-    public function test() 
+    public function search(Request $request)
     {
-        return view('page.product_detail');
+        $name = $request->input('q');
+        $setting = Setting::first();
+        $perPage = $request->get('perPage', 15);
+        $products = Product::where('name', 'like', '%'.$name.'%')->paginate($perPage);
+        $maleCate = Category::join('tbl_product', 'tbl_category.id', '=', 'tbl_product.category_id')
+                            ->select('tbl_category.id', 'tbl_category.name', \DB::raw('COUNT(tbl_product.id) as product_count'))
+                            ->where('tbl_product.gender', 1)
+                            ->groupBy('tbl_category.id', 'tbl_category.name')
+                            ->get();
+
+        $famaleCate = Category::join('tbl_product', 'tbl_category.id', '=', 'tbl_product.category_id')
+                            ->select('tbl_category.id', 'tbl_category.name', \DB::raw('COUNT(tbl_product.id) as product_count'))
+                            ->where('tbl_product.gender', 0)
+                            ->groupBy('tbl_category.id', 'tbl_category.name')
+                            ->get();
+        return view('page.collections', compact('products', 'maleCate', 'famaleCate', 'setting'));
     }
+
 }
