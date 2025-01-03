@@ -144,10 +144,17 @@
                                           <img width="240" height="240" data-src="{{ asset('storage/' . $hotTrendProduct->product->images->first()->image_url) }}" alt="{{ ($hotTrendProduct->product->name) }}" class="lazyload img-responsive center-block">
                                        </picture>
                                     </a>
-                                    <div class="product-action clearfix">
-                                       <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-507866" enctype="multipart/form-data">
+                                    {{-- <div class="product-action clearfix">
+                                       <form action="{{ route('cart.add') }}" method="post" class="variants form-nut-grid" data-id="product-actions-507866" enctype="multipart/form-data">
+                                          @csrf
                                           <div>
-                                             <input type="hidden" name="variantId" value="811090">
+                                             <input type="hidden" name="product_id" value="{{ $hotTrendProduct->product->id }}">
+                                             <input type="hidden" name="quantity" value="1" min="1" max="10">
+                                                @if($hotTrendProduct->product->discount) 
+                                                   <input type="hidden" name="price" value="{{ $hotTrendProduct->product->discount->new_price }}">
+                                                @else
+                                                   <input type="hidden" name="price" value="{{ $hotTrendProduct->product->price }}">
+                                                @endif
                                              <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
                                                 <span>
                                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
@@ -156,7 +163,7 @@
                                              </button>
                                           </div>
                                        </form>
-                                    </div>
+                                    </div> --}}
                                  </div>
                                  <div class="product-info">
                                     <h3 class="product-name"><a href="/ruou-remy-martin-club" title="Rượu Remy Martin CLUB">{{ ($hotTrendProduct->product->name) }}</a></h3>
@@ -327,19 +334,20 @@
                                             <img width="240" height="240" data-src="https://bizweb.dktcdn.net/100/022/044/products/ruou24.jpg?v=1445851659983" alt="Rượu Remy Martin CLUB" class="lazyload img-responsive center-block">
                                          </picture>
                                       </a>
-                                      <div class="product-action clearfix">
-                                         <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-507866" enctype="multipart/form-data">
-                                            <div>
+                                      {{-- <div class="product-action clearfix">
+                                         <form action="{{ route('cart.add') }}" method="post" class="variants form-nut-grid" data-id="product-actions-507866" enctype="multipart/form-data">
+                                             @csrf
+                                             <div>
                                                <input type="hidden" name="variantId" value="811090">
                                                <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
                                                   <span>
-                                                     <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
+                                                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                                      Mua hàng
                                                   </span>
                                                </button>
                                             </div>
                                          </form>
-                                      </div>
+                                      </div> --}}
                                    </div>
                                    <div class="product-info">
                                       <h3 class="product-name"><a href="/ruou-remy-martin-club" title="Rượu Remy Martin CLUB">Rượu Remy Martin CLUB</a></h3>
@@ -351,199 +359,6 @@
                                             <span class="price product-price-old">
                                             1.340.000₫			
                                             </span>
-                                         </div>
-                                      </div>
-                                   </div>
-                                </div>
-                             </div>
-                             <div class="swiper-slide">
-                                <div class="product-box a-center">
-                                   <div class="product-thumbnail">
-                                      <a href="/ruou-luxury-altair-red" title="Rượu Luxury Altair Red">
-                                         <picture>
-                                            <source media="(min-width: 1200px)" srcset="images/3_1.png">
-                                            <source media="(min-width: 992px)" srcset="images/3_1.png">
-                                            <source media="(min-width: 569px)" srcset="images/3_1.png">
-                                            <source media="(max-width: 480px)" srcset="images/3.png">
-                                            <source media="(max-width: 375px)" srcset="images/3.png">
-                                            <img width="240" height="240" data-src="https://bizweb.dktcdn.net/100/022/044/products/3.png?v=1445851165587" alt="Rượu Luxury Altair Red" class="lazyload img-responsive center-block">
-                                         </picture>
-                                      </a>
-                                      <div class="product-action clearfix">
-                                         <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-507754" enctype="multipart/form-data">
-                                            <div>
-                                               <input type="hidden" name="variantId" value="810943">
-                                               <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                                  <span>
-                                                     <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                                     Mua hàng
-                                                  </span>
-                                               </button>
-                                            </div>
-                                         </form>
-                                      </div>
-                                   </div>
-                                   <div class="product-info">
-                                      <h3 class="product-name"><a href="/ruou-luxury-altair-red" title="Rượu Luxury Altair Red">Rượu Luxury Altair Red</a></h3>
-                                      <div class="price-box clearfix">
-                                         <div class="special-price inline-block">
-                                            <span class="price product-price">2.338.000₫</span>
-                                         </div>
-                                      </div>
-                                   </div>
-                                </div>
-                             </div>
-                             <div class="swiper-slide">
-                                <div class="product-box a-center">
-                                   <div class="product-thumbnail">
-                                      <div class="sale-flash"> 
-                                         16% 
-                                      </div>
-                                      <a href="/ruou-johnnie-walker-blue-label" title="Rượu Johnnie Walker Blue">
-                                         <picture>
-                                            <source media="(min-width: 1200px)" srcset="images/31_1.png">
-                                            <source media="(min-width: 992px)" srcset="images/31_1.png">
-                                            <source media="(min-width: 569px)" srcset="images/31_1.png">
-                                            <source media="(max-width: 480px)" srcset="images/31.png">
-                                            <source media="(max-width: 375px)" srcset="images/31.png">
-                                            <img width="240" height="240" data-src="https://bizweb.dktcdn.net/100/022/044/products/31.png?v=1445850758393" alt="Rượu Johnnie Walker Blue" class="lazyload img-responsive center-block">
-                                         </picture>
-                                      </a>
-                                      <div class="product-action clearfix">
-                                         <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-507723" enctype="multipart/form-data">
-                                            <div>
-                                               <input type="hidden" name="variantId" value="810814">
-                                               <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                                  <span>
-                                                     <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                                     Mua hàng
-                                                  </span>
-                                               </button>
-                                            </div>
-                                         </form>
-                                      </div>
-                                   </div>
-                                   <div class="product-info">
-                                      <h3 class="product-name"><a href="/ruou-johnnie-walker-blue-label" title="Rượu Johnnie Walker Blue">Rượu Johnnie Walker Blue</a></h3>
-                                      <div class="price-box clearfix">
-                                         <div class="special-price inline-block">
-                                            <span class="price product-price">729.000₫</span>
-                                         </div>
-                                         <div class="old-price inline-block">															 
-                                            <span class="price product-price-old">
-                                            870.000₫			
-                                            </span>
-                                         </div>
-                                      </div>
-                                   </div>
-                                </div>
-                             </div>
-                             <div class="swiper-slide">
-                                <div class="product-box a-center">
-                                   <div class="product-thumbnail">
-                                      <a href="/ruou-california-muscat" title="Rượu California Muscat">
-                                         <picture>
-                                            <source media="(min-width: 1200px)" srcset="images/19.png">
-                                            <source media="(min-width: 992px)" srcset="images/19.png">
-                                            <source media="(min-width: 569px)" srcset="images/19.png">
-                                            <source media="(max-width: 480px)" srcset="images/19_1.png">
-                                            <source media="(max-width: 375px)" srcset="images/19_1.png">
-                                            <img width="240" height="240" data-src="https://bizweb.dktcdn.net/100/022/044/products/19.png?v=1445850433743" alt="Rượu California Muscat" class="lazyload img-responsive center-block">
-                                         </picture>
-                                      </a>
-                                      <div class="product-action clearfix">
-                                         <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-507682" enctype="multipart/form-data">
-                                            <div>
-                                               <input type="hidden" name="variantId" value="810755">
-                                               <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                                  <span>
-                                                     <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                                     Mua hàng
-                                                  </span>
-                                               </button>
-                                            </div>
-                                         </form>
-                                      </div>
-                                   </div>
-                                   <div class="product-info">
-                                      <h3 class="product-name"><a href="/ruou-california-muscat" title="Rượu California Muscat">Rượu California Muscat</a></h3>
-                                      <div class="price-box clearfix">
-                                         <div class="special-price inline-block">
-                                            <span class="price product-price">2.000.000₫</span>
-                                         </div>
-                                      </div>
-                                   </div>
-                                </div>
-                             </div>
-                             <div class="swiper-slide">
-                                <div class="product-box a-center">
-                                   <div class="product-thumbnail">
-                                      <a href="/ruou-cross-sauvignon-blanc" title="Rượu Cross Sauvignon">
-                                         <picture>
-                                            <source media="(min-width: 1200px)" srcset="images/53-min.png">
-                                            <source media="(min-width: 992px)" srcset="images/53-min.png">
-                                            <source media="(min-width: 569px)" srcset="images/53-min.png">
-                                            <source media="(max-width: 480px)" srcset="images/53-min_1.png">
-                                            <source media="(max-width: 375px)" srcset="images/53-min_1.png">
-                                            <img width="240" height="240" data-src="https://bizweb.dktcdn.net/100/022/044/products/53-min.png?v=1469181800943" alt="Rượu Cross Sauvignon" class="lazyload img-responsive center-block">
-                                         </picture>
-                                      </a>
-                                      <div class="product-action clearfix">
-                                         <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-507547" enctype="multipart/form-data">
-                                            <div>
-                                               <input type="hidden" name="variantId" value="810598">
-                                               <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                                  <span>
-                                                     <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                                     Mua hàng
-                                                  </span>
-                                               </button>
-                                            </div>
-                                         </form>
-                                      </div>
-                                   </div>
-                                   <div class="product-info">
-                                      <h3 class="product-name"><a href="/ruou-cross-sauvignon-blanc" title="Rượu Cross Sauvignon">Rượu Cross Sauvignon</a></h3>
-                                      <div class="price-box clearfix">
-                                         <div class="special-price inline-block">
-                                            <span class="price product-price">1.500.000₫</span>
-                                         </div>
-                                      </div>
-                                   </div>
-                                </div>
-                             </div>
-                             <div class="swiper-slide">
-                                <div class="product-box a-center">
-                                   <div class="product-thumbnail">
-                                      <a href="/gio-wine-and-cheese" title="Giỏ Wine and Cheese">
-                                         <picture>
-                                            <source media="(min-width: 1200px)" srcset="images/gio-wine-and-cheese_1.jpg">
-                                            <source media="(min-width: 992px)" srcset="images/gio-wine-and-cheese_1.jpg">
-                                            <source media="(min-width: 569px)" srcset="images/gio-wine-and-cheese_1.jpg">
-                                            <source media="(max-width: 480px)" srcset="images/gio-wine-and-cheese.jpg">
-                                            <source media="(max-width: 375px)" srcset="images/gio-wine-and-cheese.jpg">
-                                            <img width="240" height="240" data-src="https://bizweb.dktcdn.net/100/022/044/products/gio-wine-and-cheese.jpg?v=1444808783367" alt="Giỏ Wine and Cheese" class="lazyload img-responsive center-block">
-                                         </picture>
-                                      </a>
-                                      <div class="product-action clearfix">
-                                         <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-412411" enctype="multipart/form-data">
-                                            <div>
-                                               <input type="hidden" name="variantId" value="667075">
-                                               <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                                  <span>
-                                                     <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                                     Mua hàng
-                                                  </span>
-                                               </button>
-                                            </div>
-                                         </form>
-                                      </div>
-                                   </div>
-                                   <div class="product-info">
-                                      <h3 class="product-name"><a href="/gio-wine-and-cheese" title="Giỏ Wine and Cheese">Giỏ Wine and Cheese</a></h3>
-                                      <div class="price-box clearfix">
-                                         <div class="special-price inline-block">
-                                            <span class="price product-price">4.000.000₫</span>
                                          </div>
                                       </div>
                                    </div>
@@ -619,10 +434,17 @@
                                                 <img width="240" height="240" data-src="{{ asset('storage/' . $product->images->first()->image_url) }}" alt="{{ $product->name }}" class="lazyload img-responsive center-block">
                                              </picture>
                                           </a>
-                                          <div class="product-action clearfix">
-                                             <form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-507866" enctype="multipart/form-data">
+                                          {{-- <div class="product-action clearfix">
+                                             <form action="{{ route('cart.add') }}" method="post" class="variants form-nut-grid" data-id="product-actions-507866" enctype="multipart/form-data">
+                                                @csrf
                                                 <div>
-                                                   <input type="hidden" name="variantId" value="811090">
+                                                   <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                   <input type="hidden" name="quantity" value="1" min="1" max="10">
+                                                   @if($product->discount) 
+                                                      <input type="hidden" name="price" value="{{ $product->discount->new_price }}">
+                                                   @else
+                                                      <input type="hidden" name="price" value="{{ $product->price }}">
+                                                   @endif
                                                    <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
                                                       <span>
                                                          <i class="fa fa-cart-plus" aria-hidden="true"></i>
@@ -631,7 +453,7 @@
                                                    </button>
                                                 </div>
                                              </form>
-                                          </div>
+                                          </div> --}}
                                        </div>
                                        <div class="product-info">
                                           <h3 class="product-name"><a href="/ruou-remy-martin-club" title="Rượu Remy Martin CLUB">{{ $product->name }}</a></h3>

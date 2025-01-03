@@ -2,6 +2,17 @@
 @section('content')
 <head>
    <title> {{ $setting->site_name ?? 'NULL' }} - Chi Tiết Sản Phẩm </title>
+   <style>
+      .btn-size.selected {
+         background-color: #e8b34f;
+         color: white !important;;
+      }
+
+      .btn-size {
+         background-color: #f8f9fa;
+         color: #333;
+      }
+   </style>
 </head>
 <div>
       <section class="product">
@@ -108,14 +119,15 @@
                               @else
                                  <input type="hidden" name="price" value="{{ $product->price }}">
                               @endif
+                              <input type="hidden" name="size_id" id="size_id" value="">
                               <div class="form-group form-groupx form-detail-action" style="margin-top: 20px;">
                                  <label>Size: </label>
                                  @foreach($product->productSize as $productSize)
                                     @if($productSize->size)
                                        <div class="btn-group" role="group" aria-label="Size Selection">
-                                             <button type="button" class="btn btn-size" data-size="small" style="padding: 8px 15px; margin-right: 10px;">
-                                                {{ $productSize->size->name }} 
-                                             </button>
+                                          <button type="button" class="btn btn-size" data-size="{{ $productSize->size->id }}" style="padding: 8px 15px; margin-right: 10px;">
+                                             {{ $productSize->size->name }} 
+                                          </button>
                                        </div>
                                     @else
                                        <p>No size available for this product size.</p>
@@ -123,10 +135,8 @@
                                  @endforeach
                               <div class="form-group form-groupx form-detail-action" style="margin-top: 20px;">
                                  <label>Số lượng: </label>
-                                 <div class="custom custom-btn-number">																			
-                                    {{-- <span class="qtyminus" data-field="quantity"><i class="fa fa-caret-down"></i></span> --}}
-                                    <input type="number" class="input-text qty" data-field="quantity" title="Só lượng" value="1" maxlength="12" id="qty" name="quantity">									
-                                    {{-- <span class="qtyplus" data-field="quantity"><i class="fa fa-caret-up"></i></span> --}}
+                                 <div class="custom custom-btn-number">
+                                    <input type="number" class="input-text qty" data-field="quantity" title="Só lượng" value="1" maxlength="12" id="qty" name="quantity">
                                  </div>
                                  <button type="submit" class="btn btn-lg btn-primary btn-cart btn-cart2 add_to_cart btn_buy add_to_cart" title="Cho vào giỏ hàng">
                                     <span>Mua hàng</span>
@@ -753,6 +763,30 @@
                 $('#zoom_01').attr('src',hr);
             })
         });
+
+         document.addEventListener("DOMContentLoaded", function() {
+            const sizeButtons = document.querySelectorAll('.btn-size');
+            
+            sizeButtons.forEach(button => {
+               button.addEventListener('click', function() {
+                     sizeButtons.forEach(b => b.classList.remove('selected'));
+                     
+                     this.classList.add('selected');
+                     
+                     const selectedSize = this.getAttribute('data-size');
+                     const sizeSelect = document.getElementById('size_id');
+                     if (sizeSelect) {
+                        sizeSelect.value = selectedSize;
+                     } else {
+                        console.error('Không tìm thấy phần tử #size_id');
+                     }
+               });
+            });
+         });
+
+
+
+
      </script>
 
     @include('page/list_brands');

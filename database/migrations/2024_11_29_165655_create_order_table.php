@@ -15,6 +15,8 @@ return new class extends Migration
             $table->increments('id');
             $table->dateTime('order_date');
             $table->string('customer_name');
+            $table->string('phone');
+            $table->string('email');
             $table->float('total_price');
             $table->string('coupon_code');
             $table->string('payment_method');

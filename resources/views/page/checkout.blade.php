@@ -36,7 +36,7 @@
          <span class="wrap">
          <span class="order-summary-toggle__inner">
          <span class="order-summary-toggle__text expandable">
-         Đơn hàng ({{ count(session('cart')) }} sản phẩm)
+            Đơn hàng ({{ count(session('cart')) }} sản phẩm)
          </span>
          <span class="order-summary-toggle__total-recap" data-bind="getTextTotalPrice()"></span>
          </span>
@@ -44,14 +44,7 @@
          </button>
       </aside>
       <div data-tg-refresh="checkout" id="checkout" class="content">
-         <form id="checkoutForm" method="post" data-define="{
-            loadingShippingErrorMessage: 'Không thể load phí vận chuyển. Vui lòng thử lại',
-            loadingReductionCodeErrorMessage: 'Có lỗi xảy ra khi áp dụng khuyến mãi. Vui lòng thử lại',
-            submitingCheckoutErrorMessage: 'Có lỗi xảy ra khi xử lý. Vui lòng thử lại',
-            requireShipping: true,
-            requireDistrict: false,
-            requireWard: false,
-            shouldSaveCheckoutAbandon: true}" action="/checkout/79af46f94aa94a97b6be6e3008137981" data-bind-event-submit="handleCheckoutSubmit(event)" data-bind-event-keypress="handleCheckoutKeyPress(event)" data-bind-event-change="handleCheckoutChange(event)">
+         <form id="checkoutForm" method="post" action="/checkout/79af46f94aa94a97b6be6e3008137981" data-bind-event-submit="handleCheckoutSubmit(event)" data-bind-event-keypress="handleCheckoutKeyPress(event)" data-bind-event-change="handleCheckoutChange(event)">
             <input type="hidden" name="_method" value="patch">
             <div class="wrap">
                <main class="main">
@@ -97,23 +90,23 @@
                                     <div class="field " data-bind-class="{'field--show-floating-label': billing.phone}">
                                        <div class="field__input-wrapper field__input-wrapper--connected" data-define="{phoneInput: new InputPhone(this)}">
                                           <label for="billingPhone" class="field__label">
-                                          Số điện thoại (tùy chọn)
+                                          Số điện thoại
                                           </label>
                                           <input name="billingPhone" id="billingPhone" type="tel" class="field__input" data-bind="billing.phone" value="">
-                                          <div class="field__input-phone-region-wrapper">
+                                          {{-- <div class="field__input-phone-region-wrapper">
                                              <select class="field__input select-phone-region" name="billingPhoneRegion" data-init-value="VN"></select>
-                                          </div>
+                                          </div> --}}
                                        </div>
                                     </div>
                                     <div class="field " data-bind-class="{'field--show-floating-label': billing.address}">
                                        <div class="field__input-wrapper">
                                           <label for="billingAddress" class="field__label">
-                                          Địa chỉ (tùy chọn)
+                                          Địa chỉ
                                           </label>
                                           <input name="billingAddress" id="billingAddress" type="text" class="field__input" data-bind="billing.address" value="">
                                        </div>
                                     </div>
-                                    <div class="field field--show-floating-label ">
+                                    {{-- <div class="field field--show-floating-label ">
                                        <div class="field__input-wrapper field__input-wrapper--select2">
                                           <label for="billingProvince" class="field__label">Tỉnh thành</label>
                                           <select name="billingProvince" id="billingProvince" size="1" class="field__input field__input--select" data-bind="billing.province" value="" data-address-type="province" data-address-zone="billing">
@@ -128,7 +121,7 @@
                                           <select name="billingDistrict" id="billingDistrict" size="1" class="field__input field__input--select" value="" data-bind="billing.district" data-address-type="district" data-address-zone="billing">
                                           </select>
                                        </div>
-                                    </div>
+                                    </div> --}}
                                  </div>
                               </div>
                            </section>
@@ -139,7 +132,7 @@
                                     <label for="note" class="field__label">
                                     Ghi chú (tùy chọn)
                                     </label>
-                                    <textarea name="note" id="note" class="field__input" data-bind="note"></textarea>
+                                    <textarea name="note" id="note" class="field__input" data-bind="note" rows="5"></textarea>
                                  </div>
                               </div>
                            </div>

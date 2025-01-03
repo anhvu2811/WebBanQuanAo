@@ -34,6 +34,7 @@ class CartController extends Controller
         if (!$productExists) {
             $cart[] = [
                 'product_id' => $product->id,
+                'size_id' => $request->size_id,
                 'name' => $product->name,
                 'quantity' => $request->quantity,
                 'price' => $request->price,
@@ -55,7 +56,6 @@ class CartController extends Controller
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'Sản phẩm đã được xóa khỏi giỏ hàng!');
     }
-
 
     public function checkout()
     {
