@@ -55,7 +55,7 @@
                            <div class="swiper-button-next"></div>
                            <div class="swiper-button-prev"></div>
                         </div>
-                        <div class="owl-carousel owl-theme thumbnail-product hidden" data-md-items="3" data-sm-items="3" data-xs-items="3" data-smxs-items="3" data-margin="20">
+                        {{-- <div class="owl-carousel owl-theme thumbnail-product hidden" data-md-items="3" data-sm-items="3" data-xs-items="3" data-smxs-items="3" data-margin="20">
                            <div class="item">
                               <a href="javascript:void(0);" data-image="https://bizweb.dktcdn.net/thumb/compact/100/022/044/products/ruou16-c6ec3060-8d74-485c-a972-2d77a6233372.jpg?v=1446197510767" data-zoom-image="//bizweb.dktcdn.net/thumb/1024x1024/100/022/044/products/ruou16-c6ec3060-8d74-485c-a972-2d77a6233372.jpg?v=1446197510767">
                               <img src="images/ruou16-c6ec3060-8d74-485c-a972-2d77a6233372_2.jpg" alt="Rượu Wine  Cheese">
@@ -71,7 +71,7 @@
                               <img src="images/ruou34-0f5a93f2-55e3-4bc7-8c25-40b7b2e51927_1.jpg" alt="Rượu Wine  Cheese">
                               </a>
                            </div>
-                        </div>
+                        </div> --}}
                      </div>
                      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 details-pro">
                         <h1 class="title-head" itemprop="name">{{ $product->name }}</h1>
@@ -145,8 +145,6 @@
                            </form>
                         </div>
                         <div class="social-sharing">
-                           <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="js/addthis_widget.js#pubid=ra-544cb72e6cdd1e26"></script> 
-                           <!-- Go to www.addthis.com/dashboard to customize your tools --> 
                            <div class="addthis_native_toolbox"></div>
                         </div>
                      </div>
@@ -169,10 +167,10 @@
                            <div id="tab-1" class="tab-content">
                               <div class="rte">
                                  <p>Ý nghĩa và mục đích tặng quà chẳng phải bao giờ và ở nơi nào cũng giống nhau. Có những món quà chỉ thuần túy mang ý nghĩa tinh thần. Có những món quà khiến ta vui sướng, có những món quà làm ta ấm lòng... Có những món quà chỉ khiến ta lưu tâm trong chốc lát nhưng cũng có những món quà ta mang theo suốt cả cuộc đời.Drink Shop tự hào là nơi cung cấp những cácà dòng sản phẩm quà tặng tếtà nhưà giỏ quà tết , qùa tết cao cấp , quà tết ý nghĩa , quàà biếu sếp, hộp quà tết ...à chất lượng hàng đầu Việt Nam . Với phương châm "Trao đi yêu thương để nhận lấy yêu thương" . Drink Shopà luôn được khách hàng trên toàn quốc tín nhiệm và yêu mến</p>
-                                 <p style="color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal; text-align: center;"><img alt="" src="images/wineandcheeselovers_600x800.jpg" style="width: 500px; height: 500px;"></p>
+                                 <p style="color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal; text-align: center;"><img alt="" src="{{ asset('storage/banner/about.jpg') }}" style="width: 500px; height: 500px;"></p>
                                  <p>Quà biếu tặng dịp Tết mang nét truyền thống văn hóa cả người Việt bởi nó còn gửi gắm trong đó tình cảm và thành ý của người tặng. Giỏ quà Tết là món quà chứa đựng những thông điệu đơn giản nhưng chân thành. Hiểu được điều đó, chúng tôi đã ra mắt những mẫu giỏ quà Tết sang trọng, độc đáo và ý nghĩa chắc chắn sẽ đem lại sự hài lòng cho quý khách hàng.</p>
                                  <p>Được tính toán theo nhu cầu cũng như giá trị của từng sản phẩm, giỏ quà bao gồm đầy đủ các loại thực phẩm thiết yếu cho ngày Tết: trà, cà phê, mứt, rượu, bánh kẹo…Tất cả các sản phẩm đều được chọn từ các thương hiệu nổi tiếng, uy tín, đảm bảo an toàn vệ sinh thực phẩm mang lại sự yên tâm và hài lòng cho người được nhận.</p>
-                                 <p style="color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal; text-align: center;"><img alt="" src="images/blacktieaffair_800_600.jpg" style="width: 500px; height: 500px;"></p>
+                                 <p style="color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal; text-align: center;"></p>
                               </div>
                            </div>
                            <div id="tab-2" class="tab-content">
@@ -635,77 +633,8 @@
                 .trigger('change');
         });
         
-        $(document).ready(function() {
-            if($(window).width()>1200){
-                $('#zoom_01').elevateZoom({
-                    gallery:'gallery_01', 
-                    zoomWindowWidth:420,
-                    zoomWindowHeight:500,
-                    zoomWindowOffetx: 10,
-                    easing : true,
-                    scrollZoom : true,
-                    cursor: 'pointer', 
-                    galleryActiveClass: 'active', 
-                    imageCrossfade: true
-        
-                });
-            }
         
         
-        
-        
-        });
-        
-        $('#gallery_01 img, .swatch-element label').click(function(e){
-            $('.checkurl').attr('href',$(this).attr('src'));
-            setTimeout(function(){
-                $('.zoomContainer').remove();				
-                $('#zoom_01').elevateZoom({
-                    gallery:'gallery_01', 
-                    zoomWindowWidth:420,
-                    zoomWindowHeight:500,
-                    zoomWindowOffetx: 10,
-                    easing : true,
-                    scrollZoom : true,
-                    cursor: 'pointer', 
-                    galleryActiveClass: 'active', 
-                    imageCrossfade: true
-        
-                })
-        
-        
-                if($(window).width() > 1199){
-                    var he = $('.large-image.featured-image').height() - 100;
-        
-                    $('#gallery_01').height(he);
-                    if(he < 250){
-                        var items = 2;
-                    }else{
-                        if(he < 400){
-                            var items = 3;
-                        }else{
-                            var items = 5;
-                        }
-                    }   
-                    $("#gallery_01.swiper-container").each( function(){
-                        var config = {
-                            spaceBetween: 0,
-                            slidesPerView: items,
-                            direction: $(this).data('direction'),
-                            paginationClickable: true,
-                            nextButton: '.swiper-button-next',
-                            prevButton: '.swiper-button-prev',
-                            grabCursor: true ,
-                            calculateHeight:true,
-                            height:he
-                        };		
-                        var swiper = new Swiper(this, config);
-        
-                    });
-                }
-            },300);
-        
-        })
         $(window).on("load resize",function(e){
         
             if($(window).width() > 1199){

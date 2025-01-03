@@ -119,7 +119,7 @@
                                              <img width="240" height="240" data-src="{{ asset('storage/' . $product->images->first()->image_url) }}" alt="{{ $product->name }}" class="lazyload img-responsive center-block">
                                           </picture>
                                        </a>
-                                       <div class="product-action clearfix">
+                                       {{-- <div class="product-action clearfix">
                                           <form action="{{ route('cart.add') }}" method="post" class="variants form-nut-grid" data-id="product-actions-{{ $product->id }}" enctype="multipart/form-data">
                                              @csrf
                                              <div>
@@ -138,7 +138,7 @@
                                                 </button>
                                              </div>
                                           </form>
-                                       </div>
+                                       </div> --}}
                                     </div>
                                     <div class="product-info">
                                        <h3 class="product-name"><a href="/collections/{{ $product->id }}" title="{{ $product->name }}">{{ $product->name }}</a></h3>

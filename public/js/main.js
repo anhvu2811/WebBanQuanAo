@@ -30,12 +30,13 @@ function resizeimage() {
 /********************************************************
 # Sidebar category
 ********************************************************/
-$('.nav-category .fa-angle-down').click(function(e){
-	$(this).parent().toggleClass('active');
-});
+// $('.nav-category .fa-angle-down').click(function(e){
+// 	$(this).parent().toggleClass('active');
+// });
 /********************************************************
 # Offcanvas menu
 ********************************************************/
+
 jQuery(document).ready(function ($) {
 	$('#nav-mobile .fa').click(function(e){		
 		e.preventDefault();

@@ -111,9 +111,7 @@
             background-color: #e8b34f;
          }
       }
-
    </style>
-   
 </head>
 <div>
    <div class="container">

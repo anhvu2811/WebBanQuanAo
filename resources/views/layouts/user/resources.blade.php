@@ -9,7 +9,7 @@
    <meta name="revisit-after" content="1 days">
    <meta name="robots" content="noodp,index,follow">
    <!-- ================= Favicon ================== -->
-   <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+   {{-- <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon"> --}}
    <!-- Facebook Open Graph meta tags -->
    <meta property="og:type" content="website">
    <meta property="og:title" content="Giao diện mẫu Winehourse dành cho website dịch vụ thực phẩm, đồ uống">
@@ -25,6 +25,7 @@
    <link rel="preload" as="style" type="text/css" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/module.css?1676343869963">
    <link rel="preload" as="style" type="text/css" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/responsive.css?1676343869963">
    <link rel="preload" as="style" type="text/css" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/swiper.css?1676343869963">
+   <link rel="preload" as="script" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/plugin_main.js?1676343869963">
    <link href="{{ asset('css/swiper.css') }}" rel="stylesheet" type="text/css" media="all">
    <link href="{{ asset('css/plugin.css') }}" rel="stylesheet" type="text/css" media="all">
    <link href="{{ asset('css/base.css') }}" rel="stylesheet" type="text/css" media="all">
@@ -32,14 +33,12 @@
    <link href="{{ asset('css/module.css') }}" rel="stylesheet" type="text/css" media="all">
    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css" media="all">
 
-   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="{{ asset('js/swiper-min.js') }}" type="text/javascript"></script>
+   <script src="{{ asset('js/plugin_main.js') }}" type="text/javascript"></script>
    <script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
    <script src="{{ asset('js/jquery.responsivetabs.min.js') }}" type="text/javascript"></script>
+   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-   <script src="{{ asset('js/swiper-min.js') }}" type="text/javascript"></script>
-   <link rel="preload" as="script" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/plugin_main.js?1676343869963">
-   <script src="{{ asset('js/plugin_main.js') }}" type="text/javascript"></script>
-
+   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
  </head>
