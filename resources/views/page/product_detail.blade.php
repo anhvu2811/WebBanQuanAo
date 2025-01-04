@@ -133,6 +133,7 @@
                                        <p>No size available for this product size.</p>
                                     @endif
                                  @endforeach
+                              </div>
                               <div class="form-group form-groupx form-detail-action" style="margin-top: 20px;">
                                  <label>Số lượng: </label>
                                  <div class="custom custom-btn-number">
@@ -695,25 +696,33 @@
 
          document.addEventListener("DOMContentLoaded", function() {
             const sizeButtons = document.querySelectorAll('.btn-size');
+            const sizeInput = document.getElementById('size_id');
             
             sizeButtons.forEach(button => {
                button.addEventListener('click', function() {
                      sizeButtons.forEach(b => b.classList.remove('selected'));
-                     
                      this.classList.add('selected');
                      
                      const selectedSize = this.getAttribute('data-size');
-                     const sizeSelect = document.getElementById('size_id');
-                     if (sizeSelect) {
-                        sizeSelect.value = selectedSize;
+                     
+                     if (sizeInput) {
+                        sizeInput.value = selectedSize;
                      } else {
                         console.error('Không tìm thấy phần tử #size_id');
                      }
                });
             });
+
+            const form = document.getElementById('add-to-cart-form');
+            if (form) {
+               form.addEventListener('submit', function(event) {
+                     if (!sizeInput || !sizeInput.value) {
+                        event.preventDefault();
+                        alert("Vui lòng chọn kích thước!");
+                     }
+               });
+            }
          });
-
-
 
 
      </script>
