@@ -25,7 +25,7 @@ class CartController extends Controller
 
         $productExists = false;
         foreach ($cart as &$item) {
-            if ($item['product_id'] == $request->product_id) {
+            if ($item['product_id'] == $request->product_id && $item['size_id'] == $request->size_id) {
                 $item['quantity'] += $request->quantity;
                 $productExists = true;
                 break;

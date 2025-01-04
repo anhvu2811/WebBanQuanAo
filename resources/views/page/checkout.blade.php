@@ -253,6 +253,10 @@
                                              <th class="product__description">
                                                    <span class="product__description__name">
                                                       {{ $cart['name'] }}
+                                                      @php
+                                                         $size = \App\Models\Size::find($cart['size_id']);
+                                                      @endphp
+                                                      <b>{{ '(' . ($size ? $size->name : '') . ')' }}</b>
                                                    </span>
                                              </th>
                                              <td class="product__quantity visually-hidden"><em>Số lượng:</em> {{ $cart['quantity'] }}</td>
