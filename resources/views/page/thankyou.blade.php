@@ -89,6 +89,20 @@
         border: solid thin #e8b34f;
         background-color: #e8b34f;
     }
+
+    @media (max-width: 768px) {
+        .order-success-box {
+            padding: 20px;
+            max-width: 90%;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .order-success-box {
+            padding: 15px;
+            max-width: 95%;
+        }
+    }
 </style>
 <div class="order-success-page">
     <div class="container">
