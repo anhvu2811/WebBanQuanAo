@@ -218,7 +218,10 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $setting = Setting::first();
-        return view('page.product_detail', compact('product', 'setting'));
+        $getRelatedProducts = Product::where('category_id', '=', $product->category_id)
+                                    ->where('id', '!=', $product->id)
+                                    ->get();
+        return view('page.product_detail', compact('product', 'setting', 'getRelatedProducts'));
     }
 
     public function deleteProductImage($id)
