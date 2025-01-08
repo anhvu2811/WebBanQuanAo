@@ -9,8 +9,9 @@
       }
 
       .btn-size {
-         background-color: #f8f9fa;
+         background-color: #fff;
          color: #333;
+         border: solid thin #e8b34f !important;
       }
 
       .owl-stage-outer {
@@ -136,16 +137,15 @@
                            <input type="hidden" name="size_id" id="size_id" value="">
                            <div class="form-group form-groupx form-detail-action" style="margin-top: 20px;">
                               <label>Size: </label>
+                              @if($product->productSize->isEmpty())
+                                 <p>No size available for this product size</p>
+                              @endif
                               @foreach($product->productSize as $productSize)
-                                 @if($productSize->size)
-                                    <div class="btn-group" role="group" aria-label="Size Selection">
-                                       <button type="button" class="btn btn-size" data-size="{{ $productSize->size->id }}" data-product-id="{{ $productSize->product_id }}" style="padding: 8px 15px; margin-right: 10px;">
-                                          {{ $productSize->size->name }} 
-                                       </button>
-                                    </div>
-                                 @else
-                                    <p>No size available for this product size.</p>
-                                 @endif
+                                 <div class="btn-group" role="group" aria-label="Size Selection">
+                                    <button type="button" class="btn btn-size" data-size="{{ $productSize->size->id }}" data-product-id="{{ $productSize->product_id }}" style="padding: 8px 15px; margin-right: 10px;">
+                                       {{ $productSize->size->name }} 
+                                    </button>
+                                 </div>
                               @endforeach
                            </div>
                            <div class="form-group form-groupx form-detail-action" style="margin-top: 20px;">

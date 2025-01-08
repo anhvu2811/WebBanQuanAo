@@ -124,4 +124,15 @@
           <li class="nav-item "><a class="nav-link" href="/news">Tin tức</a></li>
        </ul>
     </nav>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+         const menuBar = document.querySelector('.menu-bar');
+         const navMobile = document.getElementById('nav-mobile');
+
+         menuBar.addEventListener('click', function() {
+            navMobile.classList.toggle('show');
+         });
+      });
+
+    </script>
  </header>
