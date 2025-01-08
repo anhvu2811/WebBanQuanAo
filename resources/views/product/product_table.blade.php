@@ -84,7 +84,7 @@
         @foreach($products as $index => $product) 
             <tr>
                 <td>
-                    {{ $products->firstItem() + $index }}
+                    {{ '#'.$products->firstItem() + $index }}
                 </td>
                 <td style="width: 200px;">
                     @if ($product->images->isNotEmpty())
@@ -152,19 +152,14 @@
 
                 // Gửi yêu cầu AJAX để lấy danh sách kích thước của sản phẩm
                 fetch(`/product/${productId}/sizes`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Failed to fetch sizes. HTTP Status: ' + response.status);
-                        }
-                        return response.json();
-                    })
+                    .then(response => response.json())
                     .then(data => {
                         if (data.sizes && data.sizes.length > 0) {
                             let sizeList = document.getElementById('size-list');
                             data.sizes.forEach((size, index) => {
                                 const row = `
                                     <tr>
-                                        <td>${index + 1}</td>
+                                        <td>#${index + 1}</td>
                                         <td><b>${size.size_name}</b></td>
                                         <td>${size.stock_quantity}</td>
                                     </tr>
@@ -172,7 +167,7 @@
                                 sizeList.innerHTML += row;
                             });
                         } else {
-                            document.getElementById('size-list').innerHTML = '<tr><td colspan="4">No sizes found.</td></tr>';
+                            document.getElementById('size-list').innerHTML = '<tr><td colspan="4">No sizes found</td></tr>';
                         }
                     })
                     .catch(error => {

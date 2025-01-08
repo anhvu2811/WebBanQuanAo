@@ -299,6 +299,17 @@ class ProductController extends Controller
         ]);
     }
 
+    public function checkSizeQuanity($productId, $sizeId)
+    {
+        $productSize = ProductSize::where('product_id', $productId)->where('size_id', $sizeId)->first();
+        if(!$productSize) {
+            return null;
+        }
+        return response()->json([
+            'quantity' => $productSize->stock_quantity
+        ]);
+    }
+
     public function search(Request $request)
     {
         $name = $request->input('q');

@@ -39,11 +39,11 @@ Route::delete('/product/delete-image/{id}', [ProductController::class, 'deletePr
 Route::post('/product/update-image/{id}', [ProductController::class, 'updateProductImage'])->name('product.updateImage');
 
 Route::get('/product/{id}/sizes', [ProductController::class, 'showSizes']);
+Route::get('/product/checkquanity/{productId}/{sizeId}', [ProductController::class, 'checkSizeQuanity']);
 
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 
 // --------------------- Login ---------------------
-// Route::get('/account/login', [LoginController::class, 'index'])->name('login.index');
 Route::post('/account/login', [LoginController::class, 'login'])->name('login.index');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 

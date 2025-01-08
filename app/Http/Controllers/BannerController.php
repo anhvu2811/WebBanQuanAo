@@ -12,7 +12,7 @@ class BannerController extends Controller
      */
     public function edit()
     {
-        $mainBanner = Banner::where('type', 'main')->first();
+        $mainBanner = Banner::where('type', 'main')->get();
         $subBanner = Banner::where('type', 'sub')->get();
         return view('banner.update', compact('mainBanner', 'subBanner'));
     }
