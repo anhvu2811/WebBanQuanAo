@@ -18,14 +18,7 @@
    <meta property="og:description" content="Với phong cách thiết kế ấn tượng, giao diện Winehourse là sự lựa chọn tuyệt vời cho các website kinh doanh thực phẩm và đồ uống">
    <meta property="og:url" content="https://winehourse-theme.mysapo.net/">
    <meta property="og:site_name" content="Winehourse">
-   <!-- Bizweb conter for header -->
-   <link rel="preload" as="style" type="text/css" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/plugin.css?1676343869963">
-   <link rel="preload" as="style" type="text/css" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/base.css?1676343869963">
-   <link rel="preload" as="style" type="text/css" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/style.css?1676343869963">
-   <link rel="preload" as="style" type="text/css" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/module.css?1676343869963">
-   <link rel="preload" as="style" type="text/css" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/responsive.css?1676343869963">
-   <link rel="preload" as="style" type="text/css" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/swiper.css?1676343869963">
-   <link rel="preload" as="script" href="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/plugin_main.js?1676343869963">
+   
    <link href="{{ asset('css/swiper.css') }}" rel="stylesheet" type="text/css" media="all">
    <link href="{{ asset('css/plugin.css') }}" rel="stylesheet" type="text/css" media="all">
    <link href="{{ asset('css/base.css') }}" rel="stylesheet" type="text/css" media="all">

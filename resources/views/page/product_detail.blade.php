@@ -345,64 +345,60 @@
       document.addEventListener("DOMContentLoaded", function() {
          const sizeButtons = document.querySelectorAll('.btn-size');
          const sizeInput = document.getElementById('size_id');
-         
+         const quantityInput = document.querySelector('input[name="quantity"]');
+         const form = document.getElementById('add-to-cart-form');
+         let availableQuantity = 0;
+
          sizeButtons.forEach(button => {
             button.addEventListener('click', function() {
                sizeButtons.forEach(b => b.classList.remove('selected'));
                this.classList.add('selected');
                
                const selectedSize = this.getAttribute('data-size');
-               
-               if (sizeInput) {
-                  sizeInput.value = selectedSize;
-               } else {
-                  console.error('Không tìm thấy phần tử #size_id');
-               }
+               sizeInput.value = selectedSize;
+
+               const productId = this.getAttribute('data-product-id');
+               fetch(`/product/checkquanity/${productId}/${selectedSize}`)
+                     .then(response => response.json())
+                     .then(data => {
+                        const quantityDisplay = document.querySelector('.products-available');
+                        const soldOutDisplay = document.querySelector('.sold-out');
+                        const sizeQuantityDisplay = document.querySelector('.size-quantity');
+                        const statusDisplay = document.querySelector('.status');
+                        
+                        availableQuantity = data.quantity; 
+                        
+                        if (data.quantity <= 0) {
+                           sizeQuantityDisplay.style.display = 'none';
+                           soldOutDisplay.classList.remove('hide');
+                           statusDisplay.textContent = "Tình trạng:";
+                           statusDisplay.classList.remove('hide');
+                           quantityDisplay.classList.add('hide');
+                        } else {
+                           sizeQuantityDisplay.style.display = 'block';
+                           soldOutDisplay.classList.add('hide');
+                           quantityDisplay.textContent = `${data.quantity} sản phẩm có sẵn`;
+                           quantityDisplay.classList.remove('hide');
+                        }
+                     })
+                     .catch(error => console.error('Error:', error));
             });
          });
 
-         const form = document.getElementById('add-to-cart-form');
          if (form) {
             form.addEventListener('submit', function(event) {
-               if (!sizeInput || !sizeInput.value) {
-                  event.preventDefault();
-                  alert("Vui lòng chọn kích thước!");
+               if (!sizeInput || !sizeInput.value || parseInt(quantityInput.value) <= 0) {
+                     event.preventDefault();
+                     alert("Vui lòng chọn kích thước !");
+               }
+               else if (parseInt(quantityInput.value) > availableQuantity) {
+                     event.preventDefault();
+                     alert("Vui lòng nhập số lượng hợp lệ !");
                }
             });
          }
       });
 
-      document.addEventListener('DOMContentLoaded', function () {
-        const sizeButtons = document.querySelectorAll('.btn-size');
-
-        sizeButtons.forEach(button => {
-            button.addEventListener('click', function () {
-               const productId = this.getAttribute('data-product-id');
-               const sizeId = this.getAttribute('data-size');
-               fetch(`/product/checkquanity/${productId}/${sizeId}`)
-                  .then(response => response.json())
-                  .then(data => {
-                     if (data.quantity <= 0) {
-                        document.querySelector('.size-quantity').style.display = 'none';
-                        document.querySelector('.sold-out').classList.remove('hide');
-
-                        document.querySelector('.status').textContent = "Tình trạng:";
-                        document.querySelector('.status').classList.remove('hide');
-                        document.querySelector('.products-available').classList.add('hide');
-                     } else {
-                        document.querySelector('.size-quantity').style.display = 'block';
-                        document.querySelector('.sold-out').classList.add('hide');
-
-                        document.querySelector('.products-available').textContent = data.quantity + " sản phẩm có sẵn";
-                        document.querySelector('.products-available').classList.remove('hide');
-                     }
-                  })
-                  .catch(error => {
-                     console.error('Error:', error);
-                  });
-            });
-        });
-    });
 
    </script>
 

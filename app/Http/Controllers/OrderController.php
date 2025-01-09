@@ -40,8 +40,17 @@ class OrderController extends Controller
         $order->email = $request->input('email') ?? '';
         $order->total_price = str_replace('.', '', $request->input('total_price')) ?? 0;
         $order->coupon_code = '';
-        $order->payment_method = '';
-        $order->payment_status = '';
+
+        $method = $request->input('paymentMethod');
+        if($method = 'COD') {
+            $status = 'Pending';
+        } else if($method = 'Credit Card' || $method = 'Paypal') {
+            $status = 'Completed';
+        } else {
+            $status = 'Failed';
+        }
+        $order->payment_method = $method;
+        $order->payment_status = $status;
         $order->shipping_address = $request->input('billingAddress') ?? '';
         $order->notes = $request->input('note') ?? '';
         $order->save();

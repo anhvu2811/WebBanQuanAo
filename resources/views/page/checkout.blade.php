@@ -174,7 +174,7 @@
                                        <div class="content-box__row">
                                           <div class="radio-wrapper">
                                              <div class="radio__input">
-                                                <input name="paymentMethod" id="paymentMethod-24237" type="radio" class="input-radio" data-bind="paymentMethod" value="24237" data-provider-id="4">
+                                                <input name="paymentMethod" id="paymentMethod-24237" type="radio" class="input-radio" data-bind="paymentMethod" value="COD" data-provider-id="4">
                                              </div>
                                              <label for="paymentMethod-24237" class="radio__label">
                                              <span class="radio__label__primary">Thanh toán khi giao hàng (COD)</span>
