@@ -50,7 +50,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // --------------------- Order ---------------------
 Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 Route::delete('/order/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
-Route::post('/order/add', [OrderController::class, 'add'])->name('order.add');
+Route::post('/order/add', [OrderController::class, 'addOrder'])->name('order.add');
 
 
 // --------------------- Setting ---------------------

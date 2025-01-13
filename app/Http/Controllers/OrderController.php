@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\ProductSize;
 use Carbon\Carbon;
 
 class OrderController extends Controller
@@ -31,7 +32,7 @@ class OrderController extends Controller
     // }
 
 
-    public function add(Request $request)
+    public function addOrder(Request $request)
     {
         $order = new Order();
         $order->order_date = Carbon::now()->format('Y-m-d H:i:s');
@@ -64,7 +65,17 @@ class OrderController extends Controller
             $orderItem->quantity = $item['quantity'];
             $orderItem->price = $item['price'];
             $orderItem->save();
+
+            // update stock quantity
+            $productSize = ProductSize::where('product_id', $item['product_id'])
+                                      ->where('size_id', $item['size_id'])
+                                      ->first();
+            if($productSize && $productSize->stock_quantity >= $item['quantity']) {
+                $productSize->stock_quantity -= $item['quantity'];
+                $productSize->save();
+            }
         }
+ 
         session()->forget('cart');
         return view('page.thankyou');
     }

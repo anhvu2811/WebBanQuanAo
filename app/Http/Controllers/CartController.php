@@ -20,9 +20,7 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         $product = Product::find($request->product_id);
-
         $cart = session()->get('cart', []);
-
         $productExists = false;
         foreach ($cart as &$item) {
             if ($item['product_id'] == $request->product_id && $item['size_id'] == $request->size_id) {
@@ -42,7 +40,6 @@ class CartController extends Controller
             ];
         }
         session()->put('cart', $cart);
-
         return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
     }
 
