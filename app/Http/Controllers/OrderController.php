@@ -7,6 +7,8 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\ProductSize;
 use Carbon\Carbon;
+use App\Mail\OrderEmail;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -75,6 +77,8 @@ class OrderController extends Controller
                 $productSize->save();
             }
         }
+        
+        Mail::to($request->input('email'))->send(new OrderEmail($cart, $order));
  
         session()->forget('cart');
         return view('page.thankyou');

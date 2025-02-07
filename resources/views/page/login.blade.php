@@ -68,16 +68,29 @@
                  <span>
                  Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.
                  </span>					
-                 <form method="post" action="/account/recover" id="recover_customer_password" accept-charset="UTF-8">
+                 <form method="post" action="/reset-password" id="recover_customer_password" accept-charset="UTF-8">
+                     @csrf
                     <input name="FormType" type="hidden" value="recover_customer_password"><input name="utf8" type="hidden" value="true">
                     <div class="form-signup aaaaaaaa">
                     </div>
                     <div class="form-signup clearfix">
                        <fieldset class="form-group">
                           <label>Email <span class="required">*</span></label>
-                          <input type="email" class="form-control form-control-lg" value="" name="Email" id="recover-email" placeholder="Email">
+                          <input type="email" class="form-control form-control-lg" value="" name="reset-password-email" id="recover-email" placeholder="Email">
                        </fieldset>
                     </div>
+                    {{-- Hiển thị thông báo thành công --}}
+                     @if (session('status'))
+                        <div class="alert alert-success">
+                           {{ session('status') }}
+                        </div>
+                     @endif
+                     {{-- Hiển thị thông báo lỗi --}}
+                     @if (session('error'))
+                        <div class="alert alert-danger">
+                           {{ session('error') }}
+                        </div>
+                     @endif
                     <div class="action_bottom">
                        <input class="btn  btn-primary" style="margin-top: 25px;" type="submit" value="Lấy lại mật khẩu">
                     </div>

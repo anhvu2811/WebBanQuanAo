@@ -9,11 +9,12 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\EmailController;
 
 Route::get('/', [ProductController::class, 'getHotTrendProducts'])->name('page.index');
-Route::get('/about', [SettingController::class, 'displayAbout'])->name('setting.display-about');
-Route::get('/news', [SettingController::class, 'displayNews'])->name('setting.display-news');
-Route::get('/account/login', [SettingController::class, 'displayLogin'])->name('setting.display-login');
+Route::get('/about', [SettingController::class, 'displayAbout'])->name('page.about');
+Route::get('/news', [SettingController::class, 'displayNews'])->name('page.news');
+Route::get('/account/login', [SettingController::class, 'displayLogin'])->name('page.login');
 Route::get('/collections/all', [ProductController::class, 'showAllProduct'])->name('product.showAllProduct');
 Route::get('/collections/{id}', [ProductController::class, 'getProductDetail'])->name('product.getProductDetail');
 Route::get('/collections/{gender}/{categoryName}', [ProductController::class, 'showCategoryProducts'])->name('product.productByCategory');
@@ -67,6 +68,6 @@ Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add')
 Route::delete('/cart/remove/{index}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/checkoutt', [CartController::class, 'checkout'])->name('cart.checkout');
 
-
-
+// Reset Password
+Route::post('/reset-password', [LoginController::class, 'resetPassword'])->name('reset-password');
 

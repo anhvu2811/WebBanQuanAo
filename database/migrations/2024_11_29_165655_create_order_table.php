@@ -16,7 +16,7 @@ return new class extends Migration
             $table->dateTime('order_date');
             $table->string('customer_name');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email', 255);
             $table->float('total_price');
             $table->string('coupon_code');
             $table->string('payment_method');
